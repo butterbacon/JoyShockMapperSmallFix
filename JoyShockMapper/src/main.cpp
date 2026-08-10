@@ -3517,6 +3517,11 @@ int main(int argc, char *argv[])
 		                                                        triggerCalibrationStep = 1;
 		                                                        return true; })
 	                      ->setHelp("Starts the trigger calibration procedure for the dualsense triggers."));
+	commandRegistry.add((new JSMMacro("CENTER_MOUSE"))->SetMacro([](JSMMacro *, string_view)
+														{
+															setMouseNorm(0.5f, 0.5f);
+															return true;
+														})->setHelp("Move the mouse cursor to the center of the screen."));
 	bool quit = false;
 	commandRegistry.add((new JSMMacro("QUIT"))
 	                      ->SetMacro([&quit](JSMMacro *, string_view)
