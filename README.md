@@ -10,6 +10,9 @@ I'm only interested in adding small fixes and additions to the `JoyShockMapper.e
 - Added: Support for `_default.txt` on the autoload directory as fallback mapping.
 - Fixed: `MOUSE_RING` is now centered on the screen. There was a typo in the source code which caused it to show up at the bottom.
 
+## Download
+[Go to the releases section](https://github.com/butterbacon/JoyShockMapperSmallFix/releases)
+
 ## Links
 - Full JSM documentation: https://github.com/Electronicks/JoyShockMapper
 - GyroWiki: http://gyrowiki.jibbsmart.com
