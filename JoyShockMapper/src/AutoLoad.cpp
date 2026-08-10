@@ -48,6 +48,21 @@ bool AutoLoad::AutoLoadPoll(void* param)
 			COUT_INFO << "create ";
 			COUT << "AutoLoad\\" << noextmodule << ".txt";
 			COUT_INFO << " to autoload for this application.\n";
+			
+			for (auto file : files)
+			{
+				auto noextconfig = file.substr(0, file.find_first_of('.'));
+
+				if (iequals(noextconfig, "_default"))
+				{
+					COUT_INFO << "[AUTOLOAD] Loading ";
+					COUT << "AutoLoad\\" << file;
+					COUT_INFO << " as fallback instead.\n";
+					WriteToConsole(path + file);
+					success = true;
+					break;
+				}
+			}
 		}
 	}
 	return true;
