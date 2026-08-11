@@ -399,6 +399,50 @@ WORD nameToKey(string_view name)
 	{
 		return VK_MEDIA_PLAY_PAUSE;
 	}
+	if (name.compare("BROWSER_BACK") == 0)
+	{
+		return VK_BROWSER_BACK;
+	}
+	if (name.compare("BROWSER_FORWARD") == 0)
+	{
+		return VK_BROWSER_FORWARD;
+	}
+	if (name.compare("BROWSER_REFRESH") == 0)
+	{
+		return VK_BROWSER_REFRESH;
+	}
+	if (name.compare("BROWSER_STOP") == 0)
+	{
+		return VK_BROWSER_STOP;
+	}
+	if (name.compare("BROWSER_SEARCH") == 0)
+	{
+		return VK_BROWSER_SEARCH;
+	}
+	if (name.compare("BROWSER_FAVORITES") == 0)
+	{
+		return VK_BROWSER_FAVORITES;
+	}
+	if (name.compare("BROWSER_HOME") == 0)
+	{
+		return VK_BROWSER_HOME;
+	}
+	if (name.compare("LAUNCH_MAIL") == 0)
+	{
+		return VK_LAUNCH_MAIL;
+	}
+	if (name.compare("LAUNCH_MEDIA_SELECT") == 0)
+	{
+		return VK_LAUNCH_MEDIA_SELECT;
+	}
+	if (name.compare("LAUNCH_APP1") == 0)
+	{
+		return VK_LAUNCH_APP1;
+	}
+	if (name.compare("LAUNCH_APP2") == 0)
+	{
+		return VK_LAUNCH_APP2;
+	}
 	if (name.compare(NONAME) == 0)
 	{
 		return VK_NONAME;
