@@ -29,12 +29,12 @@ bool AutoLoad::AutoLoadPoll(void* param)
 		lastModuleName = windowModule;
 		string path(AUTOLOAD_FOLDER());
 		auto files = ListDirectory(path);
-		auto noextmodule = windowModule.substr(0, windowModule.find_first_of('.'));
+		auto noextmodule = windowModule.substr(0, windowModule.find_last_of('.'));
 		COUT_INFO << "[AUTOLOAD] \"" << windowTitle << "\" in focus: "; // looking for config : " , );
 		bool success = false;
 		for (auto file : files)
 		{
-			auto noextconfig = file.substr(0, file.find_first_of('.'));
+			auto noextconfig = file.substr(0, file.find_last_of('.'));
 			if (iequals(noextconfig, noextmodule))
 			{
 				COUT_INFO << "loading \"AutoLoad\\" << noextconfig << ".txt\".\n";
@@ -51,7 +51,7 @@ bool AutoLoad::AutoLoadPoll(void* param)
 			
 			for (auto file : files)
 			{
-				auto noextconfig = file.substr(0, file.find_first_of('.'));
+				auto noextconfig = file.substr(0, file.find_last_of('.'));
 
 				if (iequals(noextconfig, "_default"))
 				{
