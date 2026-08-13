@@ -18,10 +18,14 @@ AutoLoad::AutoLoad(CmdRegistry* commandRegistry, bool start)
 {
 }
 
+void AutoLoad::FlushLastModule()
+{
+	lastModuleName.clear();
+}
+
 bool AutoLoad::AutoLoadPoll(void* param)
 {
 	auto registry = reinterpret_cast<CmdRegistry*>(param);
-	static string lastModuleName;
 	string windowTitle, windowModule;
 	tie(windowModule, windowTitle) = GetActiveWindowName();
 	if (!windowModule.empty() && windowModule != lastModuleName && windowModule.compare("JoyShockMapper.exe") != 0)

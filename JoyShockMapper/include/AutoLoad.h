@@ -14,8 +14,12 @@ public:
 
 	virtual ~AutoLoad() = default;
 
+	void FlushLastModule();
+
 private:
 	bool AutoLoadPoll(void* param);
+	
+	string lastModuleName;
 };
 
 } //JSM

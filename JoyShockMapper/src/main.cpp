@@ -3090,6 +3090,15 @@ void initJsmSettings(CmdRegistry *commandRegistry)
 	auto *autoloadCmd = new JSMAssignment<Switch>("AUTOLOAD", *autoloadSwitch);
 	commandRegistry->add(autoloadCmd);
 
+	auto *autoloadFlushCmd = new JSMMacro("AUTOLOAD_FLUSH");
+	autoloadFlushCmd->SetMacro([autoLoad = static_cast<JSM::AutoLoad*>(autoLoadThread.get())](JSMMacro *, string_view)
+	{
+		autoLoad->FlushLastModule();
+		return true;
+	});
+	autoloadFlushCmd->setHelp("Force the autoload system to re-check the current application.");
+	commandRegistry->add(autoloadFlushCmd);
+
 	auto autoConnectSwitch = new JSMVariable<Switch>(Switch::ON);
 	autoConnectThread.reset(new JSM::AutoConnect(jsl, autoConnectSwitch->value() == Switch::ON)); // Start by default
 	autoConnectSwitch->setFilter(&filterInvalidValue<Switch, Switch::INVALID>)->addOnChangeListener(bind(&updateThread, autoConnectThread.get(), placeholders::_1));
